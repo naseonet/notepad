@@ -1,5 +1,13 @@
 class Post
 
+  def self.post_types # statics method
+    [Memo, Link, Task]
+  end
+
+  def self.create(type_index) # statics method
+    return post_types[type_index].new
+  end
+
   def initialize
     @created_at = Time.now
     @text = nil
